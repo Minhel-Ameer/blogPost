@@ -9,9 +9,6 @@ function Posts({elem : {id, userId, title}}) {
 
   const navigatepost = (e) =>{
     history.push('/post',e)
-    
-    
-
   }
 
   return (
@@ -24,23 +21,6 @@ function Posts({elem : {id, userId, title}}) {
         <div className='id-posts'><spanposts>Id</spanposts> : {id}</div>
         <div className='userid-posts'><spanposts>User Id</spanposts> : {userId}</div>
         <div className='title-posts'><spanposts>Title</spanposts> : {title}</div>
-        {/* if ({id<100}) {
-          <div className='title'><spanposts>Title</spanposts> : {title.length>20?`${title.substring(0,20)}...`:title}</div>
-          } else {
-            <div className='title'><spanposts>Title</spanposts> : {title}</div>
-          } */}
-        
-            
-          
-            
-          
-
-
-        
-
-       
-
-        {/* <button onClick={()=>navigatepost(id)}>Read More...</button> */}
       </div>
     </div>
     </div>

@@ -16,6 +16,11 @@ const Navbar = () => {
             <li><Link to='/alldata'>Gallery</Link></li>
           </ul>
         </div>
+        <div>
+        <ul style={{underline:'none'}}>
+            <li ><a href='/'>Log Out</a></li>
+          </ul>
+        </div>
       </nav>
     </>
   )

@@ -17,7 +17,6 @@ function PostModal({closeModal}) {
     setFormErrors(validate(formValues))
     setIsSubmit(true)
     postData()
-    // closeModal(false)
   }
 
   useEffect(()=>{
@@ -49,7 +48,6 @@ function PostModal({closeModal}) {
 
   const validate = (values) => {
     const errors = {}
-    // const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     if(!values.userId){
       errors.userId = "UserID required"
     }
@@ -68,18 +66,18 @@ function PostModal({closeModal}) {
     console.log(formValues, 'form values')
   }
   
+  // const tryJSX = <h1>HELLOOOOO</h1>
 
   return (
     <div className='modalBackground'>
-      {/* <h2>Modal</h2> */}
       <div className='modalContainer'>
         
           <div className='modalTitle'><h2>Share your thoughts here</h2><button className='Xbutton' onClick={()=>closeModal(false)}>X</button></div>
-          <div className='modalBody'></div>
+          {/* <div className='modalBody'></div>
           <div className='modalFooter'></div>
-          {/* <button>Post</button> */}
           <div>
           </div>
+          {tryJSX} */}
       <form  onSubmit={handleSubmit}>
         <div>What is on your mind?</div>
             <div className='add-comment'>

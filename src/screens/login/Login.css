@@ -14,7 +14,7 @@
 .container-login{
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 8px;
   height: fit-content;
   width: 400px;
@@ -42,21 +42,24 @@
 }
 .link-login{
   padding: 5px;
-  text-decoration: none;
+    text-decoration: none;
+    color: white;
 }
+.link-login:hover{
+  color: black;
+}
+
 .btn-login{
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
   white-space: nowrap;
   position: relative;
-  /* text-align: center; */
   text-shadow: none;
   vertical-align: middle;
   font-weight: bold;
   justify-content: center;
   background-color: rgb(240,128,127); 
-  /* background-color: rgb(112,128,144); */
   border: none;
   border-radius: 6px;
   font-size: 20px;

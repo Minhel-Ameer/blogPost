@@ -3,8 +3,6 @@ import './PostExp.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
-import logo from '../../images/logo2.png'
-import Navbar from '../../components/navbar/Navbar';
 
 const PostExp=()=> {
   const[post, setPost]=useState('')
@@ -23,28 +21,16 @@ const PostExp=()=> {
       setComments(await response.json())
     }
 
-    const postComment = () =>{
-
-    }
       useEffect(()=>{
          getData();
          getComment();
-        //   fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        //   .then(response => 
-        //     console.log(response.json(),'111'))
-        //     // setPost(response.json()))
-        //   //.then(data => setPost(data))
-        // // getPost();
       },[])
 
   return (
     <div className='main-div-post'>
-      {/* <h2>Post Exp</h2> */}
-      {/* <Navbar/> */}
       <div className='main-container-post'>
         
         <div className='left-container'>
-          {/* <div><img className='logo' src={logo} alt='Facebook Logo' /></div> */}
           <div className='.image-container-post'>
               <img src='https://hdwallpaperim.com/wp-content/uploads/2017/08/25/463038-simple_background-digital_art-nature-landscape-mountains-trees-forest-Sun-portrait_display-minimalism.jpg' alt='pic'/>
           </div>
@@ -61,10 +47,10 @@ const PostExp=()=> {
         <div className='comments-container-post'>
             <h2 className='h2-postExp'>Comments</h2>
 
-            {Array.from(comments).map((elem)=>{
+            {Array.from(comments).map((elem,index)=>{
         return(
 
-            <div className='single-postexp'>
+            <div className='single-postexp'key={index}>
               <div><span>Post Id</span> : {elem.postId}</div>
               <div ><span>User Id</span> : {elem.id}</div>
               <div ><span>User Name</span> : {elem.name}</div>
@@ -75,28 +61,9 @@ const PostExp=()=> {
         
             }
             )}
-            {/* <div className='single-postexp'>
-              <div><span>Id</span> : 15</div>
-              <div ><span>User Id</span> : 15</div>
-              <div ><span>Title</span> : lkxbklfnmkldfnmdflvmfkl</div>
-              <div ><span>Body</span> : kjdfhbgjkdfghsdgjdfklgjndfklgkgnfklgndfjn</div>
-            </div> */}
-            {/* <div className='single-postexp'>
-              <div><span>Id</span> : 15</div>
-              <div ><span>User Id</span> : 15</div>
-              <div ><span>Title</span> : lkxbklfnmkldfnmdflvmfkl</div>
-              <div ><span>Body</span> : kjdfhbgjkdfghsdgjdfklgjndfklgkgnfklgndfjn</div>
-            </div> */}
-            {/* <div className='single-postexp'>
-              <div><span>Id</span> : 15</div>
-              <div ><span>User Id</span> : 15</div>
-              <div ><span>Title</span> : lkxbklfnmkldfnmdflvmfkl</div>
-              <div ><span>Body</span> : kjdfhbgjkdfghsdgjdfklgjndfklgkgnfklgndfjn</div>
-            </div> */}
+            
         </div>
         </div>
-        
-
       </div>
     </div>
   )

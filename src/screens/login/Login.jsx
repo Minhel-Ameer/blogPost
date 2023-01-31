@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom'
 import logo from '../../images/logo2.png'
 import { useHistory } from 'react-router-dom'
@@ -12,7 +12,6 @@ const [password, setPassword] = useState('')
 const history = useHistory()
 const localEmail = JSON.parse(localStorage.getItem('users'))
 const [formErrors, setFormErrors]=useState({})
-const localPassword = localStorage.getItem('users')
 const [isSubmit, setIsSubmit] = useState(false)
 
 const login = (event) =>{
@@ -21,16 +20,15 @@ const login = (event) =>{
   setFormErrors(validate(email, password))
   setIsSubmit(true)
 
-  // console.log(localEmail.password, 'email')
-  // console.log(localPassword, 'Password')
-
   console.log('local Email :', localEmail.email )
   console.log('local Password :', localEmail.password)
+  console.log(Object.keys(formErrors),'Object.keys(formErrors)')
   
 
   if(localEmail.email===email&&localEmail.password===password){
     alert('welcome', localEmail.firstName)
-    setTimeout(() => history.push('home'), 2000);
+    history.push('home')
+    // setTimeout(() => history.push('home'), 2000);
   }
   else{
     alert("wrong email or password")
@@ -40,9 +38,9 @@ const login = (event) =>{
 useEffect(()=>{
   console.log(formErrors)
   if(Object.keys(formErrors).length===0 && isSubmit){
-    console.log(email,password)
+    // console.log(email,password)
   }
-},[formErrors])
+},[formErrors, isSubmit])
 
 const validate = (email, password) =>{
   const errors = {}
@@ -57,23 +55,20 @@ const validate = (email, password) =>{
 
   return (
     <div className='login'>
-      {/* <img src='src\images\logo1.jpg' alt='logo'/> */}
       <img className='logo' src={logo} alt='Facebook Logo' />
         <div className='container-login'>
           <h1>Login</h1>
             <form>
               <div>
-              <input className='inputfield-login' type='email' placeholder='Enter Email' onChange={(e)=> setEmail(e.target.value)}/>
+              <input required className='inputfield-login' type='email' placeholder='Enter Email' onChange={(e)=> setEmail(e.target.value)}/>
               </div>
               <p>{formErrors.email}</p>
               <div>
-              <input className='inputfield-login' type='text' placeholder='Enter Password'  onChange={(e)=> setPassword(e.target.value)}/>
+              <input className='inputfield-login' type='password' placeholder='Enter Password'  onChange={(e)=> setPassword(e.target.value)}/>
               </div>
               <p>{formErrors.password}</p>
               <button onClick={login} type='submit' className='btn-login'>Log In</button>
                 <div className='sideinfo-login'>
-                  {/* <Link className='link' to='/resetpassword'>Forgotten Password</Link>
-                  <>.</> */}
                   <Link className='link-login' to='/signup'>Sign Up</Link>
                 </div>
             </form>
