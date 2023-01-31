@@ -10,7 +10,7 @@ const useFetchUser = (email,password,formErrors) => {
   const localData = JSON.parse(localStorage.getItem('users'))
   setLocalEmail(localData)
 
-    console.log('local Email :', localEmail.email )
+  console.log('local Email :', localEmail.email )
   console.log('local Password :', localEmail.password)
   console.log(Object.keys(formErrors),'Object.keys(formErrors)')
   
